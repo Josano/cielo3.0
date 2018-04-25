@@ -7,7 +7,7 @@
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
  *
- * @title      Cielo pagamento com cartão de crédito (Brazil)
+ * @title      Cielo pagamento com cartÃ£o de crÃ©dito (Brazil)
  * @category   payment
  * @package    Cielo_API
  * @copyright  Copyright (c) 2017 Nitroecom (https://www.nitroecom.com.br)
@@ -40,10 +40,12 @@ abstract class Cielo_API_AbstractSaleRequest
         ];
         
         $curl = curl_init($url);
-        
+        if (!defined('CURL_SSLVERSION_TLSv1_2')) {
+            define('CURL_SSLVERSION_TLSv1_2', 6);
+        }
         curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
         //curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true); xxx Arrumei para poder testar xxx
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
         
         switch ($method)
         {

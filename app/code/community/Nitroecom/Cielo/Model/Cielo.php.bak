@@ -69,6 +69,9 @@ class Nitroecom_Cielo_Model_Cielo extends Mage_Core_Model_Abstract
             // Em caso de erros de integração, podemos tratar o erro aqui.
             // os códigos de erro estão todos disponíveis no manual de integração.
             $error = $e->getCieloError();
+
+            print_r($error);
+
             if(Mage::getStoreConfig('payment/apelidocielo/debug'))
                 Mage::log('Cartão: '.$error->getCode().' '.$error->getMessage(), null, 'nitrocielo.log');
 

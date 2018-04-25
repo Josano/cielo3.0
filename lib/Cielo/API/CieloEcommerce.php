@@ -7,7 +7,7 @@
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
  *
- * @title      Cielo pagamento com cartão de crédito (Brazil)
+ * @title      Cielo pagamento com cartÃ£o de crÃ©dito (Brazil)
  * @category   payment
  * @package    Cielo_API
  * @copyright  Copyright (c) 2017 Nitroecom (https://www.nitroecom.com.br)

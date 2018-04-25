@@ -21,8 +21,8 @@
 <?php echo $this->__('Bandeira do cartão: %s', $this->htmlEscape($this->getCcType())) ?><br/>
 <?php echo $this->__('Últimos quatro números do cartão: **** **** **** %s', $this->htmlEscape($this->getQuatroUltimosNumeros())) ?><br/>
 <?php echo $this->__('Data de expiração: %s', $this->htmlEscape($this->getValidade())) ?><br />
-<?php echo $this->__('Número de Parcelas: %s', $this->getParcelas()) ?><br/>
-
+<?php //echo $this->__('Número de Parcelas: %s', $this->getParcelas()) ?><br/>
+<?php echo $this->__('Número de Parcelas: %s', unserialize($this->getParcelas())['parcelas_cielo']) ?><br/>
 <?php echo $this->__('Id da transação (TID): %s', $this->htmlEscape($this->getTid())) ?><br><br>
 
 <?php
@@ -38,16 +38,16 @@
     endif;
 
     echo '<br>' . $this->__('<b>Retorno da captura</b>') . '<br>';
-    if(isset($historico['captura_codigo'])):
-        echo $this->__('Código: %s', $historico['captura_codigo']). '<br>';
+    if(isset($historico['captura_mensagem'])):
+//        echo $this->__('Código: %s', $historico['captura_codigo']). '<br>';
         echo $this->__('Mensagem: %s', $historico['captura_mensagem']). '<br>';
     else:
         echo $this->__('O pagamento ainda não foi capturado'). '<p>';
     endif;
 
-    if(isset($historico['cancelamento_codigo'])):
+    if(isset($historico['cancelamento_mensagem'])):
         echo '<br>' . $this->__('<b>Retorno do cancelamento</b>') . '<br>';
-        echo $this->__('Código: %s', $historico['cancelamento_codigo']). '<br>';
+//        echo $this->__('Código: %s', $historico['cancelamento_codigo']). '<br>';
         echo $this->__('Mensagem: %s', $historico['cancelamento_mensagem']). '<br>';
     endif;
 

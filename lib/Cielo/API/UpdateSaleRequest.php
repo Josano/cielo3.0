@@ -7,7 +7,7 @@
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
  *
- * @title      Cielo pagamento com cartão de crédito (Brazil)
+ * @title      Cielo pagamento com cartÃ£o de crÃ©dito (Brazil)
  * @category   payment
  * @package    Cielo_API
  * @copyright  Copyright (c) 2017 Nitroecom (https://www.nitroecom.com.br)
@@ -41,9 +41,16 @@ class Cielo_API_UpdateSaleRequest extends Cielo_API_AbstractSaleRequest
         if ($this->serviceTaxAmount != null)
             $params['serviceTaxAmount'] = $this->serviceTaxAmount;
         
+        if (count($params)>0)
         $url .= '?'.http_build_query($params);
         
-        return $this->sendRequest('PUT', $url);
+        $textoo = "url: ".$url;
+        $teste = $this->sendRequest('PUT', $url);
+        $testeLog = serialize($teste);
+        Mage::log($testeLog, null, 'url2.log', true);
+        
+        Mage::log($textoo, null, 'url3.log', true);
+        return $teste;
     }
 
     protected function unserialize($json)
